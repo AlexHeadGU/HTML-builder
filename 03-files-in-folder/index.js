@@ -14,7 +14,7 @@ fs.readdir(dirPath, (err, files) => {
         const str = path.parse(file).ext;
         const newExt = str.replace(/./, '');
 
-        if (stats.isFile) {
+        if (stats.isFile()) {
           console.log(`${path.parse(file).name} - ${newExt} - ${stats.size/8}kb`);
         } else {
           console.log("Not a file!");

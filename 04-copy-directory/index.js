@@ -7,6 +7,7 @@ const pathDirForCopy = path.join(__dirname, 'files/')
 console.log(pathDirForCopy);
 const copyDir = () => {
     fs.mkdir(pathNewDir, { recursive: true }, (err) => {
+        console.log(pathNewDir)
         if(err) throw err; 
         console.log('Папка успешно создана');
     });
