@@ -4,18 +4,15 @@ const path = require('path');
 const pathNewDir = path.join(__dirname, 'files-copy/');
 const pathDirForCopy = path.join(__dirname, 'files/')
 
-console.log(pathDirForCopy);
 const copyDir = () => {
     fs.mkdir(pathNewDir, { recursive: true }, (err) => {
-        console.log(pathNewDir)
         if(err) throw err; 
         console.log('Папка успешно создана');
     });
 
     fs.readdir(pathDirForCopy, (err, files) => {
-        if (err) {
-            console.log(err);
-        }else {
+        if (err) throw err
+        else {
             files.forEach(file => {
                 fs.copyFile(pathDirForCopy + file, pathNewDir + file, (err) => {
                     if(err) throw err; 
